@@ -1,6 +1,7 @@
 # MSX Z80 ECS Framework
 
 Starter framework for an MSX game in Z80 assembly with an Entity Component System-like structure.
+A fun excersize for me in order to learn ASM and to learn programming for the MSX1
 
 This version has been cleaned up for **SjASMPlus v20190306.1**:
 
@@ -15,7 +16,8 @@ This version has been cleaned up for **SjASMPlus v20190306.1**:
 Windows:
 
 ```bat
-build
+buildAll
+buildSound
 ```
 
 Manual build:
@@ -36,6 +38,12 @@ After a successful build, this file will be created in the same directory:
 game.rom
 ```
 
+After a successful build for the soundtester, this file will be created in the same directory:
+
+```text
+soundtester.rom
+```
+
 Expected size:
 
 ```text
@@ -50,7 +58,7 @@ openmsx -cart game.rom
 
 ## Why `--raw=game.rom`?
 
-With your SjASMPlus version, output through source directives caused problems. Therefore, the build writes the ROM with this command-line option:
+With my SjASMPlus version, output through source directives caused problems. Therefore, the build writes the ROM with this command-line option:
 
 ```bat
 sjasmplus game.asm --raw=game.rom
@@ -151,11 +159,11 @@ Controls:
 
 ## Extending
 
-Logical next steps:
+Planned next steps:
 
 - Use `COMP_COLLIDER` and add `System_Collision`.
 - Add animation arrays, for example `ecs_anim_frame` and `ecs_anim_timer`.
 - Create an enemy spawner with `ECS_CreateEntity`.
 - Replace tile data and the tilemap with `INCBIN` output from an editor/converter.
 - Replace the PSG blip with a real music/SFX player.
-- For larger games, switch to a ROM mapper. This 16 KB variant is intentionally chosen for maximum simple runtime RAM space.
+- For larger games, ROM bank switching can be implemented. This 16 KB variant is intentionally chosen for maximum simple runtime RAM space.
